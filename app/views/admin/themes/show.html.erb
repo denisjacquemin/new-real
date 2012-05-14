@@ -1,0 +1,9 @@
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>
+<% content_for :breadcrumbs do %>
+  <ul class="breadcrumb">
+    <li><a href="#">Themes</a> <span class="divider">/</span></li>
+    <li class="active">Editing <%= @theme.title %></li>
+  </ul>
+<% end %>

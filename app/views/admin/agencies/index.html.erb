@@ -1,0 +1,25 @@
+<h1>Listing admin_agencies</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Domain</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_agencies.each do |admin_agency| %>
+  <tr>
+    <td><%= admin_agency.name %></td>
+    <td><%= admin_agency.domain %></td>
+    <td><%= link_to 'Show', admin_agency %></td>
+    <td><%= link_to 'Edit', edit_admin_agency_path(admin_agency) %></td>
+    <td><%= link_to 'Destroy', admin_agency, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Agency', new_admin_agency_path %>

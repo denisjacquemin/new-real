@@ -1,0 +1,27 @@
+<h1>Listing admin_fields</h1>
+
+<table>
+  <tr>
+    <th>Label</th>
+    <th>Active</th>
+    <th>Category</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_fields.each do |admin_field| %>
+  <tr>
+    <td><%= admin_field.label %></td>
+    <td><%= admin_field.active %></td>
+    <td><%= admin_field.category_id %></td>
+    <td><%= link_to 'Show', admin_field %></td>
+    <td><%= link_to 'Edit', edit_admin_field_path(admin_field) %></td>
+    <td><%= link_to 'Destroy', admin_field, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field', new_admin_field_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  title: MyString
+  content: MyText
+  component_type_id: 1
+  agency_id: 1
+  template_id: 1
+
+two:
+  title: MyString
+  content: MyText
+  component_type_id: 1
+  agency_id: 1
+  template_id: 1

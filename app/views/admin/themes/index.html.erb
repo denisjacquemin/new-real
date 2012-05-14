@@ -1,0 +1,6 @@
+<p>This pages contains all the themes you manage</p>
+<p>don't start from scratch, copy an existing theme and update it, you will win a lot of times</p>
+
+<% @themes.each do |theme| %>
+  <%= link_to theme.title, theme %>
+<% end %>

@@ -1,0 +1,30 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Title:</b>
+  <%= @admin_component.title %>
+</p>
+
+<p>
+  <b>Content:</b>
+  <%= @admin_component.content %>
+</p>
+
+<p>
+  <b>Component type:</b>
+  <%= @admin_component.component_type_id %>
+</p>
+
+<p>
+  <b>Agency:</b>
+  <%= @admin_component.agency_id %>
+</p>
+
+<p>
+  <b>Template:</b>
+  <%= @admin_component.template_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_component_path(@admin_component) %> |
+<%= link_to 'Back', admin_components_path %>

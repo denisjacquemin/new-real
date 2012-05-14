@@ -1,0 +1,13 @@
+<% content_for :sidebar do %>
+  <%= render 'admin/themes/sidebar' %>
+<% end %>
+<% content_for :breadcrumbs do %>
+  <ul class="breadcrumb">
+    <li><a href="#">Themes</a> <span class="divider">/</span></li>
+    <li class="active">Editing <%= @component.title %></li>
+  </ul>
+<% end %>
+<div class="block">
+  <h1>Editing <%= "#{@component.component_type.label} #{@component.title}" %></h1>
+  <%= render 'form' %>
+</div>

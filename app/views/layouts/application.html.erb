@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Pages</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <%= image_tag 'bg2.jpg', :class => 'bg' %>
+  <div id="page-content">
+    <div id="center">
+      <div data-pjax-container id="signin-box">
+        <% unless flash[:alert].nil? %>
+          <div class="msg">
+            <span class="alert"><%= alert %></span>
+            <span class="notice"><%= notice %></span>
+          </div>
+        <% end %>
+        <% unless flash[:error].nil? %>
+          <div class="msg">
+            <span class="error"><%= error %></span>
+          </div>
+        <% end %>
+        <%= yield %>
+      </div>
+    </div>
+  </div>
+</body>
+</html>

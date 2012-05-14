@@ -1,0 +1,39 @@
+<% content_for :bottom_javascript do %>
+  <%= javascript_include_tag "ace" %>
+<% end %>
+<%= form_for(@component) do |f| %>
+  <% if @component.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@component.errors.count, "error") %> prohibited this template from being saved:</h2>
+
+      <ul>
+      <% @component.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.submit "Save #{@component.component_type.label}", :class => 'btn btn-primary float-right' %>
+  <%= f.hidden_field :component_type_id %>
+  <%= f.hidden_field :theme_id, :value => @theme.id %>
+  <%= f.hidden_field :theme_id %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+  <% if @component.component_type_id == 2 %>
+    <%= f.label :permalink %>
+    <%= f.text_field :permalink %>
+    <%= f.label :template %>
+    <%= f.collection_select :template_id, @templates, :id, :title %>
+  <% end %>
+  <div id="editor-buttons">
+  <input type="hidden" id="mode">
+  <i class="icon-resize-full"></i></div>
+  <%= f.text_area :content, :style => 'display:none' %>
+  <div id="editor"></div>
+  <div class="form-actions">
+    <%= f.submit "Save #{@component.component_type.label}", :class => 'btn btn-primary' %>
+    <span class="float-right">
+      <%= link_to 'Delete', @component, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-danger' %>
+    </span>
+  </div>
+<% end %>

@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Label:</b>
+  <%= @admin_field.label %>
+</p>
+
+<p>
+  <b>Active:</b>
+  <%= @admin_field.active %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @admin_field.category_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_field_path(@admin_field) %> |
+<%= link_to 'Back', admin_fields_path %>

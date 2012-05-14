@@ -1,0 +1,147 @@
+img.bg {
+	/* Set rules to fill background */
+	min-height: 100%;
+	min-width: 1024px;
+
+	/* Set up proportionate scaling */
+	width: 100%;
+	height: auto;
+
+	/* Set up positioning */
+	position: fixed;
+	top: 0;
+	left: 0;
+	
+	z-index: -100;
+}
+
+#page-content { z-index: 100; }
+
+body {
+    margin:0;
+    padding:0;
+}
+#background {
+    height: auto;
+    width: 100%;
+    z-index: -100;
+}
+#background-container {
+    height: 100%;
+    position: fixed;
+    width: 100%;
+}
+#center {
+    height: auto;
+    margin: 100px auto;
+    width: 440px;
+}
+#page-content {
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+#signin-box {
+    margin:12px;
+    padding: 20px 25px 15px;
+    background: url('/assets/semi-transparent-50.png');
+    border: none;
+    width: 335px;
+    color: white;
+    font-family: 'Arial Rounded MT Bold',Helvetica,Arial,sans-serif;
+    
+    .msg {
+        border: 1px solid red;
+        background: #fff;
+        padding: 5px;
+        margin: 0 0 20px 0;
+    }
+    .error {
+        color: red;
+    }
+    .alert {
+        color: red;
+    }
+    h2 {
+        color: white;
+        font-size: 42px;
+        font-weight: normal;
+        padding: 0;
+        text-align: center;
+        text-transform: uppercase;
+        width: 100%;
+    }
+    
+    label {
+        font: 81.25% arial, helvetica, sans-serif;
+        font-weight:bold;
+    }
+    input {
+        display: inline-block;
+        height: 29px;
+        margin: 0;
+        padding-left: 8px;
+        background: white;
+        border: 1px solid #D9D9D9;
+        border-top: 1px solid silver;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+        -webkit-border-radius: 1px;
+        -moz-border-radius: 1px;
+        border-radius: 1px;
+        width: 100%;
+        margin: 0 0 20px 0;
+    }
+    a {
+        color: #ccc;
+        text-decoration:none;
+    }
+    
+    a:hover {
+        color: #fff;
+        text-decoration:none;
+    }
+    
+    input[type="checkbox"], input[type="radio"] {
+    width: 13px;
+    height: 13px;
+    margin: 0;
+    cursor: pointer;
+    vertical-align: bottom;
+    background: white;
+    border: 1px solid gainsboro;
+    -webkit-border-radius: 1px;
+    -moz-border-radius: 1px;
+    border-radius: 1px;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    position: relative;
+    font-size: 13px;
+    }
+    #rememberme-box {
+        height: 16px;
+        line-height: 16px;
+        font-size:14px;
+        padding: 2px 0 0 0;
+        margin: 0 0 20px 0;
+        label {
+            font-weight: normal;
+            color: white;
+            line-height: 0;
+            padding: 0 0 0 .4em;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            user-select: none;
+        }
+    }
+}
+
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+	img.bg {
+		left: 50%;
+		margin-left: -512px;   /* 50% */
+	}
+}

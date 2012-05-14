@@ -1,0 +1,15 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Type:</b>
+  <%= @admin_item.type %>
+</p>
+
+<p>
+  <b>Agency:</b>
+  <%= @admin_item.agency_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_item_path(@admin_item) %> |
+<%= link_to 'Back', admin_items_path %>

@@ -1,0 +1,22 @@
+<div class="navbar navbar-fixed-top">
+  <div class="navbar-inner">
+    <div class="container-fluid">
+      <a data-target=".nav-collapse" data-toggle="collapse" class="btn btn-navbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </a>
+      <a href="#" class="brand">Real Admin</a>
+      <div class="nav-collapse">
+        <ul class="nav">
+          <li class="active"><%= link_to 'Themes', admin_themes_path %></li>
+          <li><%= link_to 'Items', admin_items_path %></li>
+          <li><%= link_to 'Agency Details', edit_admin_agency_path(@current_agency) %></li>
+          <li><a href='#'>Settings</a></li>
+          <li class="divider-vertical"></li>
+          <li><%= link_to 'Public Website', root_path, :target => '_blank' %></li>
+        </ul>
+      </div><!--/.nav-collapse -->
+    </div>
+  </div>
+</div>

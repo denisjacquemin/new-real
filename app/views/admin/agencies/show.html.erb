@@ -1,0 +1,26 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Name:</b>
+  <%= @admin_agency.name %>
+</p>
+
+<p>
+  <b>Domain:</b>
+  <%= @admin_agency.domain %>
+</p>
+
+<h2>Pages</h2>
+<% @admin_agency.pages.each do |page| %>
+  <tr>
+    <td><%= page.title %></td>
+    <td><%= truncate(page.content, :length => 100) %></td>
+    <td><%= link_to 'Edit', edit_admin_page_path(page) %></td>
+    <td><%= link_to 'Destroy', page, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+
+<br>
+
+<%= link_to 'Edit', edit_admin_agency_path(@admin_agency) %> |
+<%= link_to 'Back', admin_agencies_path %>

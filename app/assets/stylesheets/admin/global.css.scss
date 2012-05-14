@@ -1,0 +1,30 @@
+body {
+  background: url("/assets/bg.gif") repeat scroll 0 0 #EBEBEB;
+}
+
+.clear {
+    clear: both;
+}
+
+.block {
+    border-radius: 9px 9px 9px 9px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+    background: #fff;
+    padding: 0 20px;
+    h1 {
+        margin: 0 -20px 10px -20px;
+        background-color: #F1F8FE;
+        border-bottom: 1px solid #DADEE5;
+        border-top: 1px solid #DADEE5;
+        padding: 15px 20px;
+        font-size: 22px;
+        font-style: normal;
+        font-weight: bold;
+        letter-spacing: -1px;
+        line-height: 1.2em;
+        text-transform: none;
+        border-top: none;
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+    }
+}

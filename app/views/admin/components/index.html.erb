@@ -1,0 +1,31 @@
+<h1>Listing admin_components</h1>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Content</th>
+    <th>Component type</th>
+    <th>Agency</th>
+    <th>Template</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_components.each do |admin_component| %>
+  <tr>
+    <td><%= admin_component.title %></td>
+    <td><%= admin_component.content %></td>
+    <td><%= admin_component.component_type_id %></td>
+    <td><%= admin_component.agency_id %></td>
+    <td><%= admin_component.template_id %></td>
+    <td><%= link_to 'Show', admin_component %></td>
+    <td><%= link_to 'Edit', edit_admin_component_path(admin_component) %></td>
+    <td><%= link_to 'Destroy', admin_component, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Component', new_admin_component_path %>

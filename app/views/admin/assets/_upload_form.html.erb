@@ -1,0 +1,7 @@
+<%= form_for Admin::Asset.new, :html => { :multipart => true, :id => "fileupload"  } do |f| %>
+      <span class="new-asset-link">
+        <span>Upload Asset(s)...</span>
+        <%= f.file_field :file, :multiple => true %>
+        <%= f.hidden_field :theme_id, :value => @theme.id %>
+      </span>
+<% end %>

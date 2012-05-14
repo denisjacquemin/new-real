@@ -1,0 +1,47 @@
+<%= form_for(@admin_item, :html => {:class=> 'form-horizontal'}) do |f| %>
+  <% if @admin_item.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@admin_item.errors.count, "error") %> prohibited this admin_item from being saved:</h2>
+
+      <ul>
+      <% @admin_item.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= f.submit "Save", :class => 'btn btn-primary float-right' %>
+  <fieldset>
+  <legend>Details</legend>
+  <div class="control-group">
+    <%= f.label :title, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_field :title, :class => 'span3' %>
+      <p class="help-block"><i class="icon-question-sign"></i> Short description</p>
+    </div>
+  </div>
+  <div class="control-group">
+    <%= f.label :description, :class => 'control-label' %>
+    <div class="controls">
+      <%= f.text_area :description, :rows => 5, :class => 'span5' %>
+      <p class="help-block"><i class="icon-question-sign"></i> Full description</p>
+    </div>
+  </div>
+  <%= f.label :type_id %>
+  <%= f.number_field :type_id %>
+  <%= f.label :agency_id %>
+  <%= f.number_field :agency_id %>
+  </fieldset>
+  
+  <% @categories.each do |category| %>
+    <h3><%= category.label %></h3>
+    <ul>
+      <% category.fields.each do |field| %>
+        <li><%= field.label %></li>
+      <% end %>
+    </ul>
+  <% end %>
+  <div class="form-actions">
+    <%= f.submit %>
+  </div>
+<% end %>
