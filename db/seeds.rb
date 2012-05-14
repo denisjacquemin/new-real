@@ -110,6 +110,9 @@ Admin::Field.create(:label => 'Nombre de piece', :category_id => etage.id)
 Admin::Field.create(:label => 'sale de bain', :category_id => etage.id)
 Admin::Field.create(:label => 'Nombre de piece', :category_id => rez.id)
 
+Admin::FieldType.create(:label => 'Text Field')
+Admin::FieldType.create(:label => 'Select Field')
+Admin::FieldType.create(:label => 'Checkbox')
 
 
 
