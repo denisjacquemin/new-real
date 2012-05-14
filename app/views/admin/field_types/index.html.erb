@@ -1,0 +1,23 @@
+<h1>Listing admin_field_types</h1>
+
+<table>
+  <tr>
+    <th>Label</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_field_types.each do |admin_field_type| %>
+  <tr>
+    <td><%= admin_field_type.label %></td>
+    <td><%= link_to 'Show', admin_field_type %></td>
+    <td><%= link_to 'Edit', edit_admin_field_type_path(admin_field_type) %></td>
+    <td><%= link_to 'Destroy', admin_field_type, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field type', new_admin_field_type_path %>

@@ -1,0 +1,2 @@
+module Admin::FieldTypesHelper
+end

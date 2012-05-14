@@ -1,5 +1,7 @@
 Pages::Application.routes.draw do
   
+  namespace :admin do resources :field_types end
+
   #namespace :admin do resources :assets end
 
   devise_for :users
