@@ -11,35 +11,35 @@
     </div>
   <% end %>
   <%= f.submit "Save", :class => 'btn btn-primary float-right' %>
+  <%= f.hidden_field :type_id, { :value => @type_id } %>
   <fieldset>
   <legend>Details</legend>
   <div class="control-group">
     <%= f.label :title, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_field :title, :class => 'span3' %>
+      <%= f.text_field :title, :class => 'span6' %>
       <p class="help-block"><i class="icon-question-sign"></i> Short description</p>
     </div>
   </div>
   <div class="control-group">
     <%= f.label :description, :class => 'control-label' %>
     <div class="controls">
-      <%= f.text_area :description, :rows => 5, :class => 'span5' %>
+      <%= f.text_area :description, :rows => 5, :class => 'span6' %>
       <p class="help-block"><i class="icon-question-sign"></i> Full description</p>
     </div>
   </div>
-  <%= f.label :type_id %>
-  <%= f.number_field :type_id %>
-  <%= f.label :agency_id %>
-  <%= f.number_field :agency_id %>
   </fieldset>
   
   <% @categories.each do |category| %>
-    <h3><%= category.label %></h3>
-    <ul>
-      <% category.fields.each do |field| %>
-        <li><%= field.label %></li>
-      <% end %>
-    </ul>
+    <fieldset>
+    <legend><%= category.label %></legend>
+    <% category.fields.each do |field| %>
+      <div class="control-group">
+        <%= f.label field.label, :class => 'control-label' %>
+         <div class="controls">
+         </div>
+      </div>
+    <% end %>
   <% end %>
   <div class="form-actions">
     <%= f.submit %>

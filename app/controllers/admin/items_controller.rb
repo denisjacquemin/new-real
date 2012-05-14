@@ -30,6 +30,7 @@ class Admin::ItemsController < ApplicationController
   # GET /admin/items/new.json
   def new
     @admin_item = Admin::Item.new
+    @type_id = params[:type]
     @categories = @current_agency.categories
 
     respond_to do |format|
