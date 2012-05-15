@@ -8,4 +8,8 @@ class Admin::SettingsController < ApplicationController
     @categories = Admin::Category.by_agency(@current_agency.id)
     
   end
+  
+  def fields
+    @fields = Admin::Fields
+  end
 end

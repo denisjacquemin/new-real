@@ -2,22 +2,30 @@
   <%= render 'sidebar' %>
 <% end %>
 <div class="block">
-  <div class="h1-style" class="tabbable">
-    <ul class="nav nav-tabs">
-      <li class="dropdown"><a href="#1" data-toggle="tab">Dropdown</a></li>
-      <li class="active"><a href="#2" data-toggle="tab">Categories</a></li>
-      <li><a href="#">Fields</a></li>
-      <li><a href="#">Field type</a></li>
-    </ul>
-    <div class="tab-content">
-      <div class="tab-pane active" id="1">
-        <p>I'm in Section 1.</p>
-      </div>
-      <div class="tab-pane" id="2">
-        <p>Howdy, I'm in Section 2.</p>
-      </div>
-    </div>
-  </div>
+  <h1>
+    Categories
+    <button class="btn btn-primary float-right">New Category</button>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Fields</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @categories.each do |category| %>
+        <tr>
+          <td><%= category.label %></td>
+          <td>
+            <%= category.fields.pluck(:label).join(', ') %>
+          </td>
+          <td><%= link_to 'Delete', category, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
 
 
