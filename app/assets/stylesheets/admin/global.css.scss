@@ -27,4 +27,19 @@ body {
         border-top-left-radius: 9px;
         border-top-right-radius: 9px;
     }
+    .h1-style {
+        border-top-left-radius: 9px;
+        border-top-right-radius: 9px;
+        margin: 0 -20px 0 -20px;
+        background-color: #F1F8FE;
+        padding: 20px 0 0 0;
+        
+        .nav-tabs > .active > a {
+            border-color: #DADEE5 #DADEE5 transparent;
+        }
+        
+        .nav-tabs {
+            border-bottom: 1px solid #DADEE5;
+        }
+    }
 }

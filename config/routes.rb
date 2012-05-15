@@ -1,12 +1,10 @@
 Pages::Application.routes.draw do
-  
-  namespace :admin do resources :field_types end
-
-  #namespace :admin do resources :assets end
 
   devise_for :users
 
   namespace :admin do 
+    resources :field_types
+    resources :settings, :only => [ :index ]
     resources :assets, :only => [ :index, :create, :destroy, :new ]
     resources :themes, :only => [ :index, :show  ]
     resources :agencies
