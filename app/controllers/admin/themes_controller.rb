@@ -10,6 +10,7 @@ class Admin::ThemesController < ApplicationController
 
   def show
     @theme = Admin::Theme.find(params[:id])
+    session[:theme_id] = params[:id]
     prepare_sidebar
   end
 end

@@ -15,7 +15,7 @@
   <% end %>
   <%= f.submit "Save #{@component.component_type.label}", :class => 'btn btn-primary float-right' %>
   <%= f.hidden_field :component_type_id %>
-  <%= f.hidden_field :theme_id, :value => @theme.id %>
+  <%= hidden_field_tag :theme_id, :value => @theme.id %>
   <%= f.hidden_field :theme_id %>
   <%= f.label :title %>
   <%= f.text_field :title %>

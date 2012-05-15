@@ -8,33 +8,33 @@
   <ul class="nav nav-list">
     <li class="nav-header">Templates</li>
     <% @templates.each do |component| %>
-      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component, :theme => @theme.id) %></li>
+      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component) %></li>
     <% end %>
-    <li><%= link_to 'New Template...', new_admin_component_path(:type => 1, :theme => @theme.id) %></li>
+    <li><%= link_to 'New Template...', new_admin_component_path(:type => 1) %></li>
   </ul>
   <ul class="nav nav-list">
     <li class="divider"></li>
     <li class="nav-header">Pages</li>
     <% @pages.each do |component| %>
-      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component, :theme => @theme.id) %></li>
+      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component) %></li>
     <% end %>
-    <li><%= link_to 'New Page...', new_admin_component_path(:type => 2, :theme => @theme.id) %></li>
+    <li><%= link_to 'New Page...', new_admin_component_path(:type => 2) %></li>
   </ul>
   <ul class="nav nav-list">
     <li class="divider"></li>
     <li class="nav-header">Stylesheets</li>
     <% @stylesheets.each do |component| %>
-      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component, :theme => @theme.id) %></li>
+      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component) %></li>
     <% end %>
-    <li><%= link_to 'New Stylesheet...', new_admin_component_path(:type => 3, :theme => @theme.id) %></li>
+    <li><%= link_to 'New Stylesheet...', new_admin_component_path(:type => 3) %></li>
   </ul>
   <ul class="nav nav-list">
     <li class="divider"></li>
     <li class="nav-header">Javascripts</li>
     <% @javascripts.each do |component| %>
-      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component, :theme => @theme.id) %></li>
+      <li <%= 'class=active' if !@component.nil? and component.title == @component.title  %> ><%= link_to component.title, edit_admin_component_path(component) %></li>
     <% end %>
-    <li><%= link_to 'New Javascript...', new_admin_component_path(:type => 4, :theme => @theme.id) %></li>
+    <li><%= link_to 'New Javascript...', new_admin_component_path(:type => 4) %></li>
   </ul>
   <ul class="nav nav-list">
     <li class="divider"></li>
@@ -46,7 +46,7 @@
     <span class="assets"></span>
     <% @assets.each do |asset| %>
       <% puts asset.inspect %>
-      <%= render :partial => 'admin/assets/asset', :locals => {:asset => asset, :theme_id => @theme.id} %>
+      <%= render :partial => 'admin/assets/asset', :locals => {:asset => asset} %>
     <% end %>
     <li><%= render 'admin/assets/upload_form' %></li>
   </ul>

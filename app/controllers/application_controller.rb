@@ -4,7 +4,7 @@ class ApplicationController < ActionController::Base
   before_filter :current_agency
 
   def prepare_sidebar
-    @theme = Admin::Theme.find(params[:theme]) if @theme.nil?
+    @theme = Admin::Theme.find(session[:theme_id])
     @templates = @theme.templates
     @pages = @theme.pages
     @stylesheets = @theme.stylesheets

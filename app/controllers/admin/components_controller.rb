@@ -9,7 +9,7 @@ class Admin::ComponentsController < ApplicationController
   def new
     @component = Admin::Component.new
     @component.component_type_id = params[:type]
-    @component.theme_id = params[:theme]
+    @component.theme_id = session[:theme_id]
     
     prepare_sidebar
 
@@ -65,7 +65,7 @@ class Admin::ComponentsController < ApplicationController
     @component.destroy
 
     respond_to do |format|
-      format.html { redirect_to admin_themes_show_url }
+      format.html { redirect_to admin_theme_url(session[:theme_id]) }
       format.json { head :no_content }
     end
   end
