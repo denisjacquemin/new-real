@@ -14,7 +14,6 @@ end
 gem 'liquid'
 gem 'twitter-bootstrap-rails'
 gem 'devise'
-gem 'paperclip'
 gem 'carrierwave'
 gem 'mini_magick'
 

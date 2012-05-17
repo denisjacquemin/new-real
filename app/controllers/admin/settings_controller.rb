@@ -4,12 +4,12 @@ class Admin::SettingsController < ApplicationController
   
   layout 'admin'
   
-  def index
+  def categories
     @categories = Admin::Category.by_agency(@current_agency.id)
     
   end
   
   def fields
-    @fields = Admin::Fields
+    @fields = Admin::Category.by_agency(@current_agency.id).map{|c| c.fields}
   end
 end

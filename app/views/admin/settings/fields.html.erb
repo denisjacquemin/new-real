@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>
+<div class="block">
+  <h1>
+    Categories
+    <button class="btn btn-primary float-right">New Category</button>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Fields</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fields.each do |field| %>
+        <tr>
+          <td><%= field.label %></td>
+          <td>
+            
+          </td>
+          <td><%= link_to 'Delete', field, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+
