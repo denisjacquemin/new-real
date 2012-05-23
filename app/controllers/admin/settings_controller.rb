@@ -5,11 +5,17 @@ class Admin::SettingsController < ApplicationController
   layout 'admin'
   
   def categories
-    @categories = Admin::Category.by_agency(@current_agency.id)
+    @categories = @current_agency.categories.includes(:fields)
     
   end
   
   def fields
-    @fields = Admin::Category.by_agency(@current_agency.id).map{|c| c.fields}
+    @categories = @current_agency.categories
+    @fields = @categories.map{|c| c.fields}.flatten
+    
+  end
+  
+  def field_types
+    @fields_types = @current_Agency.field_types
   end
 end

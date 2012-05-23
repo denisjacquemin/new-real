@@ -9,7 +9,7 @@ Pages::Application.routes.draw do
     match 'settings' => 'settings#categories'
     match 'settings/categories' => 'settings#categories'
     match 'settings/fields' => 'settings#fields'
-    match 'settings/field-types' => 'settings#field-types'
+    match 'settings/field-types' => 'settings#field_types'
     
     resources :field_types
     resources :assets, :only => [ :index, :create, :destroy, :new ]

@@ -3,14 +3,14 @@
 <% end %>
 <div class="block">
   <h1>
-    Categories
-    <button class="btn btn-primary float-right">New Category</button>
+    Fields
+    <button class="btn btn-primary float-right">New Field</button>
   </h1>
   <table class="table">
     <thead>
       <tr>
         <th>Label</th>
-        <th>Fields</th>
+        <th>Category</th>
         <th></th>
       </tr>
     </thead>
@@ -19,7 +19,9 @@
         <tr>
           <td><%= field.label %></td>
           <td>
-            
+            <%= form_for field, :remote => true, :html => { :class => "slim" } do |f| %>
+              <%= f.collection_select :category_id, @categories, :id, :label, :prompt => true,   %>
+            <% end %>
           </td>
           <td><%= link_to 'Delete', field, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
         </tr>
