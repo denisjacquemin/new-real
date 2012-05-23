@@ -19,8 +19,9 @@
         <tr>
           <td><%= field.label %></td>
           <td>
-            <%= form_for field, :remote => true, :html => { :class => "slim" } do |f| %>
+            <%= form_for field, :remote => true, :format => :json, :html => { :class => "slim change-category" } do |f| %>
               <%= f.collection_select :category_id, @categories, :id, :label, :prompt => true,   %>
+              <%= f.submit :style => 'display:none', :class => 'submit' %>
             <% end %>
           </td>
           <td><%= link_to 'Delete', field, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>

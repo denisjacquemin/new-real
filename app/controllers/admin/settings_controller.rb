@@ -6,7 +6,6 @@ class Admin::SettingsController < ApplicationController
   
   def categories
     @categories = @current_agency.categories.includes(:fields)
-    
   end
   
   def fields
