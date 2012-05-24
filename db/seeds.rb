@@ -103,16 +103,23 @@ rez = Admin::Category.create(:label => 'Rez de chaussee', :active => true, :agen
 sous = Admin::Category.create(:label => 'Sous sol', :active => true, :agency_id => real.id)
 isolation = Admin::Category.create(:label => 'Isolation', :active => true, :agency_id => real.id)
 
-Admin::Field.create(:label => 'Terrain', :category_id => surface.id)
-Admin::Field.create(:label => 'Habitable', :category_id => surface.id)
-Admin::Field.create(:label => 'Amenageable', :category_id => surface.id)
-Admin::Field.create(:label => 'Nombre de piece', :category_id => etage.id)
-Admin::Field.create(:label => 'sale de bain', :category_id => etage.id)
-Admin::Field.create(:label => 'Nombre de piece', :category_id => rez.id)
+ft = Admin::FieldType.create(:label => 'Text Field')
+ft.agency_id = real.id
+ft.save
+ft = Admin::FieldType.create(:label => 'Select Field')
+ft.agency_id = real.id
+ft.save
+ft = Admin::FieldType.create(:label => 'Checkbox')
+ft.agency_id = real.id
+ft.save
 
-Admin::FieldType.create(:label => 'Text Field')
-Admin::FieldType.create(:label => 'Select Field')
-Admin::FieldType.create(:label => 'Checkbox')
+Admin::Field.create(:label => 'Terrain', :category_id => surface.id, :field_type_id => 1)
+Admin::Field.create(:label => 'Habitable', :category_id => surface.id, :field_type_id => 1)
+Admin::Field.create(:label => 'Amenageable', :category_id => surface.id, :field_type_id => 1)
+Admin::Field.create(:label => 'Nombre de piece', :category_id => etage.id, :field_type_id => 1)
+Admin::Field.create(:label => 'sale de bain', :category_id => etage.id, :field_type_id => 1)
+Admin::Field.create(:label => 'Nombre de piece', :category_id => rez.id, :field_type_id => 1)
+
 
 
 

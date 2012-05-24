@@ -1,0 +1,31 @@
+<% content_for :sidebar do %>
+  <%= render 'sidebar' %>
+<% end %>
+<div class="block">
+  <h1>
+    Field Types
+    <button class="btn btn-primary float-right">New Type</button>
+  </h1>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Label</th>
+        <th>Fields</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% @fieldtypes.each do |type| %>
+        <tr>
+          <td><%= type.label %></td>
+          <td>
+            <%= type.fields.pluck(:label).join(', ') %>
+          </td>
+          <td><%= link_to 'Delete', type, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
+
+

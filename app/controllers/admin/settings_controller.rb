@@ -11,10 +11,11 @@ class Admin::SettingsController < ApplicationController
   def fields
     @categories = @current_agency.categories
     @fields = @categories.map{|c| c.fields}.flatten
+    @fieldtypes = @current_agency.field_types
     
   end
   
-  def field_types
-    @fields_types = @current_Agency.field_types
+  def fieldtypes
+    @fieldtypes = @current_agency.field_types
   end
 end

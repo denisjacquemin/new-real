@@ -11,6 +11,7 @@
       <tr>
         <th>Label</th>
         <th>Category</th>
+        <th>Type</th>
         <th></th>
       </tr>
     </thead>
@@ -21,6 +22,12 @@
           <td>
             <%= form_for field, :remote => true, :format => :json, :html => { :class => "slim change-category" } do |f| %>
               <%= f.collection_select :category_id, @categories, :id, :label, :prompt => true,   %>
+              <%= f.submit :style => 'display:none', :class => 'submit' %>
+            <% end %>
+          </td>
+          <td>
+            <%= form_for field, :remote => true, :format => :json, :html => { :class => "slim change-fieldtype" } do |f| %>
+              <%= f.collection_select :field_type_id, @fieldtypes, :id, :label, :prompt => true,   %>
               <%= f.submit :style => 'display:none', :class => 'submit' %>
             <% end %>
           </td>
