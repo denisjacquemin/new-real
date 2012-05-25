@@ -4,7 +4,7 @@
 <div class="block">
   <h1>
     Fields
-    <button class="btn btn-primary float-right">New Field</button>
+    <button class="btn btn-primary float-right new-button-field">New Field</button>
   </h1>
   <table class="table">
     <thead>
@@ -16,24 +16,7 @@
       </tr>
     </thead>
     <tbody>
-      <% @fields.each do |field| %>
-        <tr>
-          <td><%= field.label %></td>
-          <td>
-            <%= form_for field, :remote => true, :format => :json, :html => { :class => "slim change-category" } do |f| %>
-              <%= f.collection_select :category_id, @categories, :id, :label, :prompt => true,   %>
-              <%= f.submit :style => 'display:none', :class => 'submit' %>
-            <% end %>
-          </td>
-          <td>
-            <%= form_for field, :remote => true, :format => :json, :html => { :class => "slim change-fieldtype" } do |f| %>
-              <%= f.collection_select :field_type_id, @fieldtypes, :id, :label, :prompt => true,   %>
-              <%= f.submit :style => 'display:none', :class => 'submit' %>
-            <% end %>
-          </td>
-          <td><%= link_to 'Delete', field, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
-        </tr>
-      <% end %>
+      <%= render @fields %>
     </tbody>
   </table>
 </div>

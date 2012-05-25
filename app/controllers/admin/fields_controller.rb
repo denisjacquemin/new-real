@@ -27,11 +27,13 @@ class Admin::FieldsController < ApplicationController
   # GET /admin/fields/new
   # GET /admin/fields/new.json
   def new
-    @admin_field = Admin::Field.new
+    @field = Admin::Field.new(:category => Admin::Category.new, :field_type => Admin::FieldType.new)
+    @categories = @current_agency.categories
+    @fieldtypes = @current_agency.field_types
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @admin_field }
+      format.html { render :partial => 'new_field' }
+      format.json { render json: @field }
     end
   end
 

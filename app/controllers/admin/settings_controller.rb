@@ -10,7 +10,7 @@ class Admin::SettingsController < ApplicationController
   
   def fields
     @categories = @current_agency.categories
-    @fields = @categories.map{|c| c.fields}.flatten
+    @fields = @categories.map{|c| c.fields}.flatten.sort{|x,y| x.label <=> y.label}
     @fieldtypes = @current_agency.field_types
     
   end

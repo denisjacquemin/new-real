@@ -1,0 +1,22 @@
+<%= form_for(@field, :remote => true) do |f| %>
+<div class="row">
+  <div class="span3">
+    <%= f.label :label %>
+    <%= f.text_field :label, :class => 'new-field-label' %></td>
+  </div>
+  <div class="span3">
+      <%= f.label :category_id, 'Category' %>
+      <%= f.collection_select :category_id, @categories, :id, :label, :prompt => true,   %>
+  </div>
+  <div class="span2">
+      <%= f.label :category_id, 'Type' %>
+      <%= f.collection_select :field_type_id, @fieldtypes, :id, :label, :prompt => true,   %>
+  </div>
+</div>
+<div class="row">
+  <div class="span3">
+    <%= f.submit 'Create', :class => 'btn btn-primary btn-small'  %>
+    <%= button_tag 'Cancel', :class => 'btn btn-danger btn-small cancel-new-field'  %>
+  </div>
+</div>
+<% end %>
