@@ -1,5 +1,11 @@
 body {
   background: url("/assets/bg.gif") repeat scroll 0 0 #EBEBEB;
+  
+  #messages {
+      position: absolute;
+      right: 20px;
+      top: 50px;
+  }
 }
 
 .clear {

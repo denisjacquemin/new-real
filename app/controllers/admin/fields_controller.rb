@@ -49,11 +49,18 @@ class Admin::FieldsController < ApplicationController
 
     respond_to do |format|
       if @admin_field.save
-        format.html { redirect_to @admin_field, notice: 'Field was successfully created.' }
+        format.html { 
+          @categories = @current_agency.categories
+          @fields = @categories.map{|c| c.fields}.flatten.sort{|x,y| x.label <=> y.label}
+          @fieldtypes = @current_agency.field_types
+          render :partial => 'admin/fields/field', :collection => @fields  
+        }
         format.json { render json: @admin_field, status: :created, location: @admin_field }
       else
-        format.html { render action: "new" }
-        format.json { render json: @admin_field.errors, status: :unprocessable_entity }
+        format.html { 
+          render json: @admin_field.errors, status: :unprocessable_entity }
+        format.json { 
+          render json: @admin_field.errors, status: :unprocessable_entity }
       end
     end
   end

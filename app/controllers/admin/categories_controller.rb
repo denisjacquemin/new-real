@@ -5,7 +5,7 @@ class Admin::CategoriesController < ApplicationController
   # GET /admin/categories
   # GET /admin/categories.json
   def index
-    @admin_categories = Admin::Category.all
+    @admin_categories = Admin::Category.by_agency(@current_agency)
 
     respond_to do |format|
       format.html # index.html.erb
@@ -27,11 +27,11 @@ class Admin::CategoriesController < ApplicationController
   # GET /admin/categories/new
   # GET /admin/categories/new.json
   def new
-    @admin_category = Admin::Category.new
+    @category = Admin::Category.new
 
     respond_to do |format|
-      format.html # new.html.erb
-      format.json { render json: @admin_category }
+      format.html { render :partial => 'new_category', :layout => false }
+      format.json { render json: @category }
     end
   end
 
@@ -43,15 +43,19 @@ class Admin::CategoriesController < ApplicationController
   # POST /admin/categories
   # POST /admin/categories.json
   def create
-    @admin_category = Admin::Category.new(params[:admin_category])
+    @category = Admin::Category.new(params[:admin_category])
+    @category.agency_id = @current_agency.id
+    
 
     respond_to do |format|
-      if @admin_category.save
-        format.html { redirect_to @admin_category, notice: 'Category was successfully created.' }
-        format.json { render json: @admin_category, status: :created, location: @admin_category }
+      if @category.save
+        format.html { 
+          @categories = Admin::Category.by_agency(@current_agency)
+          render :partial => 'admin/categories/category', :collection => @categories }
+        format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
-        format.json { render json: @admin_category.errors, status: :unprocessable_entity }
+        format.json { render json: @category.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -80,7 +84,7 @@ class Admin::CategoriesController < ApplicationController
 
     respond_to do |format|
       format.html { redirect_to admin_settings_url }
-      format.json { head :no_content }
+      format.json { render json: {:id => params[:id]}  }
     end
   end
 end

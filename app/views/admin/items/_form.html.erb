@@ -37,7 +37,7 @@
       <div class="control-group">
         <%= f.label field.label, :class => 'control-label' %>
          <div class="controls">
-           <%= render :partial => 'admin/field_types/field_input', :locals => { :field => field } %>
+           <%= render :partial => 'admin/fields/field_input', :locals => { :field => field, :fieldvalue => Admin::FieldValue.new(:item_id => @admin_item.id, :field_id => field.id) } %>
          </div>
       </div>
     <% end %>

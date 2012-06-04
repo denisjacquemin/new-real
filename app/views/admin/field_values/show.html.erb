@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Value:</b>
+  <%= @admin_field_value.value %>
+</p>
+
+<p>
+  <b>Item:</b>
+  <%= @admin_field_value.item_id %>
+</p>
+
+<p>
+  <b>Field:</b>
+  <%= @admin_field_value.field_id %>
+</p>
+
+
+<%= link_to 'Edit', edit_admin_field_value_path(@admin_field_value) %> |
+<%= link_to 'Back', admin_field_values_path %>

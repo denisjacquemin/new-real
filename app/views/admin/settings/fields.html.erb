@@ -4,8 +4,12 @@
 <div class="block">
   <h1>
     Fields
-    <button class="btn btn-primary float-right new-button-field">New Field</button>
+    <%= link_to 'New Field', new_admin_field_url, 
+        :class =>'btn btn-primary float-right new-button-field', 
+        :'data-type' => 'html', 
+        :remote => true %>    
   </h1>
+  <div id="new-form-container" style="display:none;"></div>
   <table class="table">
     <thead>
       <tr>
@@ -15,7 +19,7 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
+    <tbody id="fields">
       <%= render @fields %>
     </tbody>
   </table>

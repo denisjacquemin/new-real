@@ -1,0 +1,27 @@
+<h1>Listing admin_field_values</h1>
+
+<table>
+  <tr>
+    <th>Value</th>
+    <th>Item</th>
+    <th>Field</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @admin_field_values.each do |admin_field_value| %>
+  <tr>
+    <td><%= admin_field_value.value %></td>
+    <td><%= admin_field_value.item_id %></td>
+    <td><%= admin_field_value.field_id %></td>
+    <td><%= link_to 'Show', admin_field_value %></td>
+    <td><%= link_to 'Edit', edit_admin_field_value_path(admin_field_value) %></td>
+    <td><%= link_to 'Destroy', admin_field_value, confirm: 'Are you sure?', method: :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Field value', new_admin_field_value_path %>

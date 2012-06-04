@@ -31,7 +31,7 @@ class Admin::ItemsController < ApplicationController
   def new
     @admin_item = Admin::Item.new
     @type_id = params[:type]
-    @categories = @current_agency.categories
+    @categories = @current_agency.categories.includes(:fields)
 
     respond_to do |format|
       format.html # new.html.erb

@@ -1,0 +1,12 @@
+<tr>
+  <td><%= category.label %></td>
+  <td>
+    <%= category.fields.pluck(:label).join(', ') %>
+  </td>
+  <td><%= link_to 'Delete', category, 
+                  confirm: 'Are you sure?', 
+                  method: :delete,
+                  :remote => true,
+                  :'data-type' => 'json',
+                  :class => 'btn btn-mini delete-button' %></td>
+</tr>

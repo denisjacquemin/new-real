@@ -4,8 +4,12 @@
 <div class="block">
   <h1>
     Categories
-    <button class="btn btn-primary float-right">New Category</button>
+    <%= link_to 'New Category', new_admin_category_url, 
+        :class =>'btn btn-primary float-right new-button-category', 
+        :'data-type' => 'html', 
+        :remote => true %>
   </h1>
+  <div id="new-form-container" style="display:none;"></div>
   <table class="table">
     <thead>
       <tr>
@@ -14,16 +18,8 @@
         <th></th>
       </tr>
     </thead>
-    <tbody>
-      <% @categories.each do |category| %>
-        <tr>
-          <td><%= category.label %></td>
-          <td>
-            <%= category.fields.pluck(:label).join(', ') %>
-          </td>
-          <td><%= link_to 'Delete', category, confirm: 'Are you sure?', method: :delete, :class => 'btn btn-mini' %></td>
-        </tr>
-      <% end %>
+    <tbody id="categories">
+      <%= render @categories %>
     </tbody>
   </table>
 </div>
