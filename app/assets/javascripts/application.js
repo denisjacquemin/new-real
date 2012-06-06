@@ -12,6 +12,4 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require twitter/bootstrap
-//= require_tree .
-//= require ace/src/ace
+//= require_tree ./devise
