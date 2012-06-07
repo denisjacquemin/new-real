@@ -7,10 +7,10 @@ $(document).ready ->
   # on the settings/fields screen
   # add empty form to create a new field
   $('.new-button-field')
-    .bind('ajax:beforeSend', (evt, xhr, settings) ->
+    .live('ajax:beforeSend', (evt, xhr, settings) ->
       $(this).attr('disabled', 'disabled')
     )
-    .bind('ajax:success', (evt, data, status, xhr) ->
+    .live('ajax:success', (evt, data, status, xhr) ->
       $('#new-form-container').html(xhr.responseText).slideDown('fast')
     )
     
@@ -50,10 +50,10 @@ $(document).ready ->
   # on the settings/categories screen
   # add empty form to create a new category
   $('.new-button-category')
-    .bind('ajax:beforeSend', (evt, xhr, settings) ->
+    .live('ajax:beforeSend', (evt, xhr, settings) ->
       $(this).attr('disabled', 'disabled')
     )
-    .bind('ajax:success', (evt, data, status, xhr) ->
+    .live('ajax:success', (evt, data, status, xhr) ->
       $('#new-form-container').html(xhr.responseText).slideDown('fast')
     )
   
