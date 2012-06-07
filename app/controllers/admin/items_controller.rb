@@ -49,10 +49,17 @@ class Admin::ItemsController < ApplicationController
   # POST /admin/items.json
   def create
     @admin_item = Admin::Item.new(params[:admin_item])
+    @admin_item.agency_id = @current_agency.id
+    fields = params[:item][:field]
 
     respond_to do |format|
       if @admin_item.save
-        format.html { redirect_to @admin_item, notice: 'Item was successfully created.' }
+               
+        fields.each do |key, value|
+          Admin::FieldValue.create(:item_id => @admin_item.id, :field_id => key, :value => value)
+        end
+        
+        format.html { redirect_to edit_admin_item_path(@admin_item), notice: 'Item was successfully created.' }
         format.json { render json: @admin_item, status: :created, location: @admin_item }
       else
         format.html { render action: "new" }

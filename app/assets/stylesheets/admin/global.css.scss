@@ -17,6 +17,9 @@ body {
     box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
     background: #fff;
     padding: 0 20px;
+    -moz-box-shadow: 2px 3px 5px #555;
+    -webkit-box-shadow: 2px 3px 5px #555;
+    box-shadow: 2px 3px 5px #555;
     h1 {
         margin: 0 -20px 10px -20px;
         background-color: #F1F8FE;

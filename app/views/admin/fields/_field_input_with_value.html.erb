@@ -1,0 +1,12 @@
+<% 
+    field_value = Admin::FieldValue.where(:item_id => item_id, :field_id => field.id).first 
+    value = field_value.value unless field_value.nil?
+%>
+<% if field.field_type_id == 1 %>
+    
+    <%= text_field_tag "item[field][#{field.id}]", value %>
+<% elsif field.field_type_id == 2 %>
+<select/>
+<% elsif field.field_type_id == 3 %>
+<input type="checkbox">
+<% end %>

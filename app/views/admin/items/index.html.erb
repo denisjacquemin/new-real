@@ -1,36 +1,38 @@
-<% content_for :sidebar do %>
+<div class="span3">
   <%= render 'sidebar' %>
-<% end %>
-<div class="block">
-  <h1>Items Listing
-    <div class="btn-group float-right">
-      <button class="btn dropdown-toggle btn-primary float-right" data-toggle="dropdown" href="#">New Item <span class="caret"></span></button>
-      <ul class="dropdown-menu pull-right">
-        <li><%= link_to 'House to sell', new_admin_item_path(:type => 1), :class => '' %></li>
-        <li><%= link_to 'House to Rent', new_admin_item_path(:type => 2), :class => '' %></li>
-        <li><%= link_to 'Ground to Sell', new_admin_item_path(:type => 2), :class => '' %></li>
-        <li><%= link_to 'Farm', new_admin_item_path(:type => 2), :class => '' %></li>
-      </ul>
-    </div>
-  </h1>
-  <table class="table">
-    <thead>
-      <tr>
-        <th></th>
-        <th>Title</th>
-        <th></th>
-        <th></th>
-        <th></th>
-      </tr>
-    </thead>
-    <% @items.each do |admin_item| %>
-      <tr>
-        <td><img src="http://placehold.it/24x24" alt="" style="width:24px;height:24px;"></td>
-        <td><%= link_to admin_item.title, edit_admin_item_path(admin_item)%></td>
-        <td><%= link_to 'Show', admin_item %></td>
-        <td><%= link_to 'Edit', edit_admin_item_path(admin_item) %></td>
-        <td><%= link_to 'Destroy', admin_item, confirm: 'Are you sure?', method: :delete %></td>
-      </tr>
-    <% end %>
-    </table>
+</div>
+<div class="span9">
+  <div class="block">
+    <h1>Items Listing
+      <div class="btn-group float-right">
+        <button class="btn dropdown-toggle btn-primary float-right" data-toggle="dropdown" href="#">New Item <span class="caret"></span></button>
+        <ul class="dropdown-menu pull-right">
+          <li><%= link_to 'House to sell', new_admin_item_path(:type => 1), :class => '' %></li>
+          <li><%= link_to 'House to Rent', new_admin_item_path(:type => 2), :class => '' %></li>
+          <li><%= link_to 'Ground to Sell', new_admin_item_path(:type => 2), :class => '' %></li>
+          <li><%= link_to 'Farm', new_admin_item_path(:type => 2), :class => '' %></li>
+        </ul>
+      </div>
+    </h1>
+    <table class="table">
+      <thead>
+        <tr>
+          <th></th>
+          <th>Title</th>
+          <th></th>
+          <th></th>
+          <th></th>
+        </tr>
+      </thead>
+      <% @items.each do |admin_item| %>
+        <tr>
+          <td><img src="http://placehold.it/24x24" alt="" style="width:24px;height:24px;"></td>
+          <td><%= link_to admin_item.title, edit_admin_item_path(admin_item)%></td>
+          <td><%= link_to 'Show', admin_item %></td>
+          <td><%= link_to 'Edit', edit_admin_item_path(admin_item) %></td>
+          <td><%= link_to 'Destroy', admin_item, confirm: 'Are you sure?', method: :delete %></td>
+        </tr>
+      <% end %>
+      </table>
+  </div>
 </div>

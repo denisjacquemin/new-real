@@ -14,8 +14,4 @@ class Admin::SettingsController < ApplicationController
     @fieldtypes = @current_agency.field_types
     
   end
-  
-  def fieldtypes
-    @fieldtypes = @current_agency.field_types
-  end
 end
