@@ -97,11 +97,11 @@ Admin::Component.create(:title => 'contact real website',
             :theme_id => theme.id,
             :content => 'Please contact me at <a href="mailto:denis.jacquemin@gmail.com">denis jacquemin</a>')
 Admin::Item.create(:title => 'Villa 4 facades', :description => 'Superbe villa 4 facade a renover en plein centre, proximite de tout, 5min gare', :type_id => 1, :agency_id => real.id)
-surface = Admin::Category.create(:label => 'Surface', :active => true, :agency_id => real.id)
-etage = Admin::Category.create(:label => 'Etage', :active => true, :agency_id => real.id)
-rez = Admin::Category.create(:label => 'Rez de chaussee', :active => true, :agency_id => real.id)
-sous = Admin::Category.create(:label => 'Sous sol', :active => true, :agency_id => real.id)
-isolation = Admin::Category.create(:label => 'Isolation', :active => true, :agency_id => real.id)
+surface = Admin::Category.create(:label => 'Surface', :active => true, :agency_id => real.id, :active => true)
+etage = Admin::Category.create(:label => 'Etage', :active => true, :agency_id => real.id, :active => true)
+rez = Admin::Category.create(:label => 'Rez de chaussee', :active => true, :agency_id => real.id, :active => true)
+sous = Admin::Category.create(:label => 'Sous sol', :active => true, :agency_id => real.id, :active => true)
+isolation = Admin::Category.create(:label => 'Isolation', :active => true, :agency_id => real.id, :active => true)
 
 ft = Admin::FieldType.create(:label => 'Text Field')
 ft.agency_id = real.id
@@ -113,12 +113,12 @@ ft = Admin::FieldType.create(:label => 'Checkbox')
 ft.agency_id = real.id
 ft.save
 
-Admin::Field.create(:label => 'Terrain', :category_id => surface.id, :field_type_id => 1)
-Admin::Field.create(:label => 'Habitable', :category_id => surface.id, :field_type_id => 1)
-Admin::Field.create(:label => 'Amenageable', :category_id => surface.id, :field_type_id => 1)
-Admin::Field.create(:label => 'Nombre de piece', :category_id => etage.id, :field_type_id => 1)
-Admin::Field.create(:label => 'sale de bain', :category_id => etage.id, :field_type_id => 1)
-Admin::Field.create(:label => 'Nombre de piece', :category_id => rez.id, :field_type_id => 1)
+Admin::Field.create(:label => 'Terrain', :category_id => surface.id, :field_type_id => 1, :active => true)
+Admin::Field.create(:label => 'Habitable', :category_id => surface.id, :field_type_id => 1, :active => true)
+Admin::Field.create(:label => 'Amenageable', :category_id => surface.id, :field_type_id => 1, :active => true)
+Admin::Field.create(:label => 'Nombre de piece', :category_id => etage.id, :field_type_id => 1, :active => true)
+Admin::Field.create(:label => 'sale de bain', :category_id => etage.id, :field_type_id => 1, :active => true)
+Admin::Field.create(:label => 'Nombre de piece', :category_id => rez.id, :field_type_id => 1, :active => true)
 
 
 

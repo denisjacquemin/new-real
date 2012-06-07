@@ -5,11 +5,11 @@ class Admin::SettingsController < ApplicationController
   layout 'admin'
   
   def categories
-    @categories = @current_agency.categories.includes(:fields)
+    @categories = @current_agency.categories.active.includes(:fields)
   end
   
   def fields
-    @categories = @current_agency.categories
+    @categories = @current_agency.categories.active
     @fields = @categories.map{|c| c.fields}.flatten.sort{|x,y| x.label <=> y.label}
     @fieldtypes = @current_agency.field_types
     

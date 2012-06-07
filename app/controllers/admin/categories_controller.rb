@@ -80,8 +80,8 @@ class Admin::CategoriesController < ApplicationController
   # DELETE /admin/categories/1.json
   def destroy
     @admin_category = Admin::Category.find(params[:id])
-    @admin_category.destroy
-
+    @admin_category.update_attribute(:active, false)
+    
     respond_to do |format|
       format.html { redirect_to admin_settings_url }
       format.json { render json: {:id => params[:id]}  }

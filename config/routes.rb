@@ -17,7 +17,7 @@ Pages::Application.routes.draw do
     resources :themes, :only => [ :index, :show  ]
     resources :agencies
     resources :items
-    resources :categories
+    resources :categories, :only => [ :new, :create, :destroy ]
     resources :fields
     resources :components, :except  => [ :index, :show ]
   end

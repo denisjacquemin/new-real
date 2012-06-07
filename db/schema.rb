@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120605162806) do
+ActiveRecord::Schema.define(:version => 20120529062233) do
 
   create_table "admin_agencies", :force => true do |t|
     t.string   "name"
@@ -88,14 +88,6 @@ ActiveRecord::Schema.define(:version => 20120605162806) do
   create_table "admin_themes", :force => true do |t|
     t.string   "title"
     t.integer  "agency_id"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-  end
-
-  create_table "admin_values", :force => true do |t|
-    t.string   "value"
-    t.integer  "field_id"
-    t.integer  "item_id"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
   end

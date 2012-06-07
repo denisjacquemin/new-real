@@ -4,6 +4,7 @@ class Admin::Category < ActiveRecord::Base
   
   default_scope :order => 'label asc'
   
+  scope :active, where(:active => true)
   scope :by_agency, lambda { |agency_id| where(:agency_id => agency_id) }
   
 end
