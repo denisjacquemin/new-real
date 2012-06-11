@@ -19,12 +19,13 @@ class Admin::CategoriesController < ApplicationController
   def create
     @category = Admin::Category.new(params[:admin_category])
     @category.agency_id = @current_agency.id
+    @category.active = true
     
 
     respond_to do |format|
       if @category.save
         format.html { 
-          @categories = Admin::Category.by_agency(@current_agency)
+          @categories = @current_agency.categories.active
           render :partial => 'admin/categories/category', :collection => @categories }
         format.json { render json: @category, status: :created, location: @category }
       else

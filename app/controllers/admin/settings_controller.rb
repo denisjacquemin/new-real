@@ -12,6 +12,5 @@ class Admin::SettingsController < ApplicationController
     @categories = @current_agency.categories.active
     @fields = @categories.map{|c| c.fields}.flatten.sort{|x,y| x.label <=> y.label}
     @fieldtypes = @current_agency.field_types
-    
   end
 end

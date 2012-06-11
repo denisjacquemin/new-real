@@ -12,6 +12,7 @@ $(document).ready ->
     )
     .live('ajax:success', (evt, data, status, xhr) ->
       $('#new-form-container').html(xhr.responseText).slideDown('fast')
+      $('#new-form-container :input:enabled:visible:first').focus();
     )
     
   # on the settings/fields screen
@@ -55,6 +56,7 @@ $(document).ready ->
     )
     .live('ajax:success', (evt, data, status, xhr) ->
       $('#new-form-container').html(xhr.responseText).slideDown('fast')
+      $('#new-form-container :input:enabled:visible:first').focus();
     )
   
   # on the settings/categories screen

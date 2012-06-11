@@ -8,6 +8,7 @@ Pages::Application.routes.draw do
 
   namespace :admin do 
     
+    
     match 'settings' => 'settings#categories'
     match 'settings/categories' => 'settings#categories'
     match 'settings/fields' => 'settings#fields'
@@ -22,7 +23,9 @@ Pages::Application.routes.draw do
     resources :components, :except  => [ :index, :show ]
   end
   
+  match '/admin' => 'admin/settings#fields'
+  
   match ':permalink' => 'sites#show'
-
+  
   root :to => 'sites#show', :permalink => 'home'
 end
