@@ -1,9 +1,13 @@
-<% content_for :sidebar do %>
-  <%= render 'sidebar' %>
-<% end %>
 <% content_for :breadcrumbs do %>
   <ul class="breadcrumb">
     <li><a href="#">Themes</a> <span class="divider">/</span></li>
     <li class="active">Editing <%= @theme.title %></li>
   </ul>
 <% end %>
+<div class="span3">
+  <%= render 'sidebar' %>
+</div>
+<div class="span9">
+    toto
+</div>
+
