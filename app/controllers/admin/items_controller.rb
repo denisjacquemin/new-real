@@ -31,6 +31,7 @@ class Admin::ItemsController < ApplicationController
   def new
     @admin_item = Admin::Item.new
     @type_id = params[:type]
+    
     @categories = @current_agency.categories.includes(:fields)
 
     respond_to do |format|
@@ -42,7 +43,10 @@ class Admin::ItemsController < ApplicationController
   # GET /admin/items/1/edit
   def edit
     @admin_item = Admin::Item.find(params[:id])
-    @categories = @current_agency.categories
+    @categories = @admin_item.field_values.collect do |fv| 
+      fv.category
+    end
+    
   end
 
   # POST /admin/items
@@ -72,9 +76,15 @@ class Admin::ItemsController < ApplicationController
   # PUT /admin/items/1.json
   def update
     @admin_item = Admin::Item.find(params[:id])
+    fields = params[:item][:field]
 
     respond_to do |format|
       if @admin_item.update_attributes(params[:admin_item])
+        
+        fields.each do |key, value|
+          Admin::FieldValue.create(:item_id => @admin_item.id, :field_id => key, :value => value)
+        end
+        
         format.html { redirect_to @admin_item, notice: 'Item was successfully updated.' }
         format.json { head :no_content }
       else

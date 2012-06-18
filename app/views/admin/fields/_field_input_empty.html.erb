@@ -1,7 +1,7 @@
 <% if field.field_type_id == 1 %>
-    <%= text_field_tag "item[field][#{field.id}]", %>
+  <%= text_field_tag "item[field][#{field.id}]", nil, :class => 'span12' %>
 <% elsif field.field_type_id == 2 %>
 <select/>
 <% elsif field.field_type_id == 3 %>
-<input type="checkbox">
+  <%= check_box_tag "item[field][#{field.id}]", true %>
 <% end %>

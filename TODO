@@ -1,7 +1,55 @@
-Un nouveau model
+item/new
 
-title
-content
-type
-agency_id
-template_id
+prendre la liste des fields active
+
+item/edit
+
+prendre la liste des fields value avec leur categories
+
+le label vient de fields
+
+
+Le designer va livrer un site
+  - les 9/10 du temps les fiedls ne vont pas bouger
+  
+  - on laisse la possibilite au designer de modifier les fields en cours de route
+    - pour les items existants on gardes les anciens champs (via le field value)
+  
+  
+  
+  ca ne va pas trop complique!!
+  
+  
+  BEsoin
+  
+  Supprimer les categories et avoir juste des fields!!
+  pour le item#new prendre la liste des fields pour une agency et active
+  pour le item#edit prendre la liste des fieldValues de l'item
+  juste des fields de type text pour l'instant
+  
+  
+  
+  
+  ## fields                 
+  id
+  label
+  category_id
+
+  ## item_fields  
+  item_id
+  field_id
+
+  
+  ## fields_values
+  field_id
+  value_id
+  item_id
+  
+  edit
+    ItemField.where(:item_id => @item.id)
+    categories = categorries.byAgency
+    
+  end
+  
+  
+  
